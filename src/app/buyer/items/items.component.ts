@@ -4,6 +4,7 @@ import { AppService } from 'src/app/service/app.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Item } from 'src/app/model/item.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-items',
@@ -19,6 +20,7 @@ export class ItemsComponent implements OnInit, OnDestroy {
   private $destroy = new Subject<any>();
 
   constructor(
+    private router: Router,
     private appService: AppService,
     private itemApiService: ItemApiService
   ) { }
@@ -36,8 +38,13 @@ export class ItemsComponent implements OnInit, OnDestroy {
     this.$destroy.unsubscribe();
   }
 
-  onItemClick(item) {
-    alert(this.isCustomerLogin ? '您已登入，但商品詳細資料頁面施工中' : '要看商品詳細資料請先登入');
+  onItemClick(item: Item) {
+    // alert(this.isCustomerLogin ? '您已登入，但商品詳細資料頁面施工中' : '要看商品詳細資料請先登入');
+    if (this.isCustomerLogin) {
+      this.router.navigateByUrl(`buyer/item/${item.ID}`);
+    } else {
+      alert('要看商品詳細資料請先登入');
+    }
   }
 
 }

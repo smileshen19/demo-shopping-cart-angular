@@ -19,6 +19,7 @@ enum MaintainAction {
   styleUrls: ['./item-maintain.component.css']
 })
 export class ItemMaintainComponent implements OnInit {
+  isBuyerPage = false;
 
   maintainAction: MaintainAction = MaintainAction.Create;
 
@@ -30,33 +31,38 @@ export class ItemMaintainComponent implements OnInit {
   imgUrl: string;
 
   constructor(
-    private itemApiService: ItemApiService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
+    public itemApiService: ItemApiService,
+    public router: Router,
+    public activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
-  ) {
-    this.form = this.formBuilder.group({
-      'ID': [''],
-      'Name': [''],
-      'Category': [''],
-      'Unit': [''],
-      'Price': [''],
-      'Description': [''],
-    });
-  }
+  ) { }
 
   ngOnInit() {
+    this.form = this.formBuilder.group({
+      'ID': [{ value: '', disabled: this.isBuyerPage }],
+      'Name': [{ value: '', disabled: this.isBuyerPage }],
+      'Category': [{ value: '', disabled: this.isBuyerPage }],
+      'Unit': [{ value: '', disabled: this.isBuyerPage }],
+      'Price': [{ value: '', disabled: this.isBuyerPage }],
+      'Description': [{ value: '', disabled: this.isBuyerPage }],
+    });
+
     this.activatedRoute.params.subscribe((routeParams: { id: string }) => {
       // reset
       this.maintainAction = routeParams.id === MaintainAction.Create ? MaintainAction.Create : MaintainAction.Update;
       this.selectedFile = undefined;
       this.imgUrl = undefined;
+      this.afterRouteParamsChange();
       // get data
       this.itemApiService.getByKey(routeParams.id)
         .subscribe((item) => {
           this.item = item;
         });
     });
+  }
+
+  afterRouteParamsChange() {
+
   }
 
   save() {
@@ -74,6 +80,11 @@ export class ItemMaintainComponent implements OnInit {
       console.error('save() err = ', err);
       alert('存檔失敗');
     });
+  }
+
+  clickImg(fileInput) {
+    if (this.isBuyerPage) { return; }
+    fileInput.click();
   }
 
   cancel() {

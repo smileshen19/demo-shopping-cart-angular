@@ -47,3 +47,15 @@
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
+
+.hover-icon {
+  width: 80px;
+    height: 80px;
+  -webkit-transition: width 0.5s, height 0.5s; /* For Safari 3.1 to 6.0 */
+    transition: width 0.5s, height 0,5s;
+}
+
+.hover-icon:hover {
+  width: 90px;
+    height: 90px;
+}

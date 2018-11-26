@@ -1,3 +1,87 @@
-<p>
-  item-detail works!
-</p>
+<app-page-title title="商品詳細資料"></app-page-title>
+<input type="file" style="display: none;" #fileInput (change)="onFileChanged($event)">
+<form [formGroup]="form">
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" style="display:inline-block;">
+      <div class="form-group pointer" (click)="clickImg(fileInput)">
+        <label for="exampleInputEmail1">圖片</label>
+        <img style="width: 100%; height: auto; max-height: 320px;" [src]="imgUrl" (error)="onImageError($event)">
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8 row" style="display:inline-block;">
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" style="display:inline-block;">
+        <div class="form-group">
+          <label for="ID">品號</label>
+          <input type="text" class="form-control" id="ID" placeholder="" [(ngModel)]="item.ID" formControlName="ID">
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" style="display:inline-block;">
+        <div class="form-group">
+          <label for="Name">品名</label>
+          <input type="email" class="form-control" id="Name" placeholder="" [(ngModel)]="item.Name" formControlName="Name">
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" style="display:inline-block;">
+        <div class="form-group">
+          <label for="Category">分類</label>
+          <input type="text" class="form-control" id="Category" placeholder="" [(ngModel)]="item.Category"
+            formControlName="Category">
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" style="display:inline-block;">
+        <div class="form-group">
+          <label for="Unit">單位</label>
+          <input type="text" class="form-control" id="Unit" placeholder="" maxlength="4" [(ngModel)]="item.Unit"
+            formControlName="Unit">
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" style="display:inline-block;">
+        <div class="form-group">
+          <label for="Price">單價</label>
+          <input type="number" class="form-control" id="Price" placeholder="" [(ngModel)]="item.Price" formControlName="Price">
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:inline-block;">
+        <div class="form-group">
+          <label for="Description">描述</label>
+          <textarea class="form-control" id="Description" aria-describedby="Description" placeholder="" [(ngModel)]="item.Description"
+            formControlName="Description"></textarea>
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:inline-block; margin-top: 20px;">
+      <div class="form-group text-center">
+        <div class="btn-group" role="group">
+          <input type="number" class="form-control" id="buyCount"  style="text-align: right; width: 100px;" placeholder="" [(ngModel)]="buyCount" [ngModelOptions]="{standalone: true}">
+          <button class="btn btn-success" (click)="addToCart()">加到購物車</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:inline-block; margin-top: 20px;">
+      <div class="form-group text-center">
+        <div class="btn-group" role="group">
+          <button class="btn btn-danger" (click)="back()">返回</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</form>
