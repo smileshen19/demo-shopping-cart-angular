@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ShoppingCartService } from 'src/app/service/shopping-cart.service';
 import { takeUntil } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { AppService } from 'src/app/service/app.service';
 
 @Component({
   selector: 'app-cart-page',
@@ -17,7 +19,9 @@ export class CartPageComponent implements OnInit, OnDestroy {
   $destroy = new Subject<any>();
 
   constructor(
+    private router: Router,
     private shoppingCartService: ShoppingCartService,
+    private appService: AppService,
   ) { }
 
   ngOnInit() {
@@ -35,8 +39,12 @@ export class CartPageComponent implements OnInit, OnDestroy {
     this.$destroy.unsubscribe();
   }
 
-  onCartClicked() {
-
+  goPurchase() {
+    if (this.appService.isCustomerLogin()) {
+      alert('準備結帳');
+    } else {
+      alert('請先登入');
+    }
   }
 
 }
