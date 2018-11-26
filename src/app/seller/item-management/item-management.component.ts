@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/model/item.model';
 import { ItemApiService } from 'src/app/api-service/item-api.service';
+import { Router } from '@angular/router';
 
 const noImageUrl = './assets/image/noimage.jpg';
 
@@ -14,7 +15,8 @@ export class ItemManagementComponent implements OnInit {
   items: Item[] = [];
 
   constructor(
-    private itemApiService: ItemApiService
+    private itemApiService: ItemApiService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -23,6 +25,19 @@ export class ItemManagementComponent implements OnInit {
 
   onImageError(event) {
     event.target.src = noImageUrl;
+  }
+
+  createItem() {
+    this.router.navigateByUrl('seller/item-maintain/create');
+  }
+
+  updateItem(item: Item) {
+    this.router.navigateByUrl(`seller/item-maintain/${item.ID}`);
+  }
+
+  deleteItem(item: Item) {
+    alert(`刪除item: ${item.ID}`);
+    // this.router.navigateByUrl(`seller/item-maintain/${item.ID}`);
   }
 
 }

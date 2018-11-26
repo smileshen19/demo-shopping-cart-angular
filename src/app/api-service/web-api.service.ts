@@ -33,7 +33,7 @@ export abstract class WebApiService<DataInterface, DataModel> {
     return this.httpService.get(`${this.apiUrl}/${this.apiName}`)
       .pipe(
         tap(x => { console.log(`${this.apiName}: getByKey(${key})`, x); }),
-        map((x: DataInterface) => new this._dataModelConstructor(x))
+        map((x: DataInterface) => new this._dataModelConstructor(x[0]))
       );
   }
 

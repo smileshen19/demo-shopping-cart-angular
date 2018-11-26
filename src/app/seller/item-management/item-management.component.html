@@ -1,5 +1,10 @@
 <app-page-title title="商品管理"></app-page-title>
-<div class="table-responsive" style="overflow: hidden;">
+<div class="row">
+  <div class="col-12">
+    <button class="btn btn-primary float-right" (click)="createItem()">新增</button>
+  </div>
+</div>
+<div class="table-responsive" style="overflow: hidden; margin-top: 20px">
   <table class="table">
     <thead>
       <tr>
@@ -23,10 +28,10 @@
         <td style="vertical-align: middle; width: 100px; text-align: center;">
           <div class="row">
             <div class="col-12 hover-bg" style="cursor: pointer; color: green;">
-              <a class="noselect">修改</a>
+              <a class="noselect" (click)="updateItem(item)">修改</a>
             </div>
             <div class="col-12 hover-bg" style="cursor: pointer; color: red;">
-              <a class="noselect">刪除</a>
+              <a class="noselect" (click)="deleteItem(item)">刪除</a>
             </div>
           </div>
         </td>

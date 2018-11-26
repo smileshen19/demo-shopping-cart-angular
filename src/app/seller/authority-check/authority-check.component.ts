@@ -22,7 +22,7 @@ export class AuthorityCheckComponent implements OnInit {
   check() {
     if (this.pw === 'P@ssw0rd') {
       this.appService.adminLogin();
-      this.router.navigateByUrl('seller/itemmanagement');
+      this.router.navigateByUrl('seller/item-management');
       alert('密碼正確，將導向管理頁面');
     } else {
       alert('密碼錯誤');

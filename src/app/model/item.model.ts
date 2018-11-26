@@ -25,10 +25,10 @@ export class Item extends DataModel implements IItem {
   Name = '';
   Unit = '';
   Category = '';
-  Price: number = null;
+  Price = 0;
   Description = '';
   Barcode = '';
-  SafetyStock: number = null;
+  SafetyStock = 10;
   StopDate: string = null;
   Str1 = '';
   Str2 = '';

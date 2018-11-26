@@ -1,30 +1,12 @@
-<!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div *ngIf="!isCustomerLogin">
-        <input type="text" placeholder="帳號" style="width: 100px;" [(ngModel)]="account">
-        <input type="password" placeholder="密碼" style="width: 100px;" [(ngModel)]="pw">
-        <button (click)="toogleLogin(true)">登入</button>
-    </div>
-    <div *ngIf="isCustomerLogin">
-        <button (click)="toogleLogin(false)">登出</button>
-    </div>
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-            <a class="nav-link" style="cursor: pointer;" routerLink="/buyer">商品列表</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" style="cursor: pointer;" routerLink="/seller">管理商品</a>
-        </li>
-    </ul>
-</nav> -->
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <!-- Brand -->
     <div *ngIf="!isCustomerLogin">
-        <input type="text" placeholder="帳號" style="width: 100px;" [(ngModel)]="account">
-        <input type="password" placeholder="密碼" style="width: 100px;" [(ngModel)]="pw">
-        <button (click)="toggleLogin(true)">登入</button>
+        <input type="text" class="text-center" style="border: none; border: solid 1px gray; border-radius: 5px 0 0 5px; width: 80px;" placeholder="帳號" [(ngModel)]="account">
+        <input type="password" class="text-center" style="border: none; border: solid 1px gray; width: 80px;" placeholder="密碼" [(ngModel)]="pw">
+        <button class="pointer" style="border: none; border: solid 1px gray; width: 80px;  border-radius: 0 5px 5px 0;" (click)="toggleLogin(true)">登入</button>
     </div>
     <div *ngIf="isCustomerLogin">
-        <button (click)="toggleLogin(false)">登出</button>
+        <button class="pointer" style="border: none; border: solid 1px gray; border-radius: 5px 5px 5px 5px; width: 80px;" (click)="toggleLogin(false)">登出</button>
     </div>
 
     <!-- Toggler/collapsibe Button -->
