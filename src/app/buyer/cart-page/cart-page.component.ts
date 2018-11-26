@@ -12,6 +12,8 @@ import { AppService } from 'src/app/service/app.service';
 })
 export class CartPageComponent implements OnInit, OnDestroy {
 
+  isPurchasing = false;
+
   totalItemsKinds = 0;
   totalAmount = 0;
   totalItems = 0;
@@ -27,6 +29,10 @@ export class CartPageComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.isPurchasing = this.appService.isPurchasing();
+    this.appService.whenPurchaseChange().subscribe((inPurchase) => {
+      this.isPurchasing = inPurchase;
+    });
     this.shoppingCartService.whenCartStatusChange()
       .pipe(takeUntil(this.$destroy))
       .subscribe(() => {

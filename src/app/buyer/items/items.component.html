@@ -1,6 +1,6 @@
 <app-page-title title="商品列表"></app-page-title>
 <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-2" *ngFor="let item of items">
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let item of items">
     <app-item-card [item]="item" (click)="onItemClick(item)"></app-item-card>
   </div>
 </div>

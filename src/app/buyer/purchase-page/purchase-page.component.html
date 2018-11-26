@@ -1,13 +1,13 @@
 <app-page-title title="購買清單"></app-page-title>
-<div class="row">
+<div class="row responsive">
   <div class="col-12 text-right">總金額：${{totalAmount}}元</div>
 </div>
 <div class="row">
-  <div class="table-responsive" style="overflow: hidden; margin-top: 20px">
+  <div class="table-responsive" style="overflow: hidden; margin-top: 20px; padding-right: 10%;">
     <table class="table">
       <thead>
         <tr>
-          <th class="text-center" style="width: 200px;">圖片</th>
+          <th class="text-center hidden-xs hidden-sm" style="width: 200px;">圖片</th>
           <th class="text-center hidden-xs hidden-sm">商品品號</th>
           <th class="text-center">商品名稱</th>
           <th class="text-center hidden-xs hidden-sm">單位</th>
@@ -17,8 +17,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr style="height: 100px;" *ngFor="let detail of sale.SaleDetails">
-          <td style="width: 100px; height:100px; text-align: center;">
+        <tr class="hidden-xs hidden-sm" style="height: 100px;" *ngFor="let detail of sale.SaleDetails">
+          <td class="hidden-xs hidden-sm" style="width: 100px; height:100px; text-align: center;">
             <img style="height: 100%; width: auto; border-radius: 5px;" [src]="detail.Str1" (error)="onImageError($event)">
           </td>
           <td class="hidden-xs hidden-sm" style="vertical-align: middle;">{{detail.ItemID}}</td>

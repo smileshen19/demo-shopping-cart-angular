@@ -1,6 +1,7 @@
+import { AppService } from 'src/app/service/app.service';
 import { SaleDetail } from './../../model/sale.model';
 import { ShoppingCartService } from './../../service/shopping-cart.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ItemApiService } from 'src/app/api-service/item-api.service';
 import { Router } from '@angular/router';
 import { Item } from 'src/app/model/item.model';
@@ -13,7 +14,7 @@ const noImageUrl = './assets/image/noimage.jpg';
   templateUrl: './purchase-page.component.html',
   styleUrls: ['./purchase-page.component.css']
 })
-export class PurchasePageComponent implements OnInit {
+export class PurchasePageComponent implements OnInit, OnDestroy {
 
   sale = new Sale();
   totalAmount = 0;
@@ -22,6 +23,7 @@ export class PurchasePageComponent implements OnInit {
     private itemApiService: ItemApiService,
     private shoppingCartService: ShoppingCartService,
     private router: Router,
+    private appService: AppService,
   ) { }
 
   ngOnInit() {
@@ -41,6 +43,11 @@ export class PurchasePageComponent implements OnInit {
       detail.Str1 = status.item.Str1;
       this.sale.SaleDetails.push(detail);
     });
+    this.appService.purchaseStart();
+  }
+
+  ngOnDestroy(): void {
+    this.appService.purchaseEnd();
   }
 
   onImageError(event) {
