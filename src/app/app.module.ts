@@ -5,8 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { AppService } from './service/app.service';
-import { SellerAdminGuardService } from './service/seller-admin-guard.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,12 +14,11 @@ import { SellerAdminGuardService } from './service/seller-admin-guard.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     LayoutModule
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    AppService,
-    SellerAdminGuardService,
   ],
   bootstrap: [AppComponent]
 })

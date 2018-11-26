@@ -5,7 +5,9 @@ import { AppService } from './app.service';
 import { Observable, of } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class SellerAdminGuardService implements CanActivate {
 
   constructor(
