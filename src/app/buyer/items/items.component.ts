@@ -39,12 +39,12 @@ export class ItemsComponent implements OnInit, OnDestroy {
   }
 
   onItemClick(item: Item) {
-    // alert(this.isCustomerLogin ? '您已登入，但商品詳細資料頁面施工中' : '要看商品詳細資料請先登入');
-    if (this.isCustomerLogin) {
-      this.router.navigateByUrl(`buyer/item/${item.ID}`);
-    } else {
-      alert('要看商品詳細資料請先登入');
-    }
+    this.router.navigateByUrl(`buyer/item/${item.ID}`); // 結帳時再登入即可
+    // if (this.isCustomerLogin) {
+    //   this.router.navigateByUrl(`buyer/item/${item.ID}`);
+    // } else {
+    //   alert('要看商品詳細資料請先登入');
+    // }
   }
 
 }
