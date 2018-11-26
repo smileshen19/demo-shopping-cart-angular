@@ -78,4 +78,13 @@ export class ShoppingCartService {
     return total;
   }
 
+  getItemsInCart(): { item: Item, count: number }[] {
+    const result = [];
+    const cart = ShoppingCartService._cart;
+    cart.forEach((status) => {
+      result.push(status);
+    });
+    return result;
+  }
+
 }

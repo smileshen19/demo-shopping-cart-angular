@@ -8,24 +8,24 @@
   <table class="table">
     <thead>
       <tr>
-        <th style="width: 100px; text-align: center;">圖片</th>
-        <th>品號</th>
-        <th>品名</th>
-        <th class="hidden-xs hidden-sm">單價</th>
-        <th class="hidden-xs hidden-sm">商品描述</th>
-        <th style="width: 100px; text-align: center;">操作</th>
+        <th class="text-center" style="width: 200px;">圖片</th>
+        <th class="text-center" style="width: 200px;">品號</th>
+        <th class="text-center" style="width: 200px;">品名</th>
+        <th class="text-center hidden-xs hidden-sm">商品描述</th>
+        <th class="text-center hidden-xs hidden-sm" style="width: 200px;">單價</th>
+        <th class="text-center" style="width: 200px;">操作</th>
       </tr>
     </thead>
     <tbody>
       <tr style="height: 100px;" *ngFor="let item of items">
-        <td style="width: 100px; height:100px; text-align: center;">
-          <img style="height: 100%; width: 100%; border-radius: 5px;" [src]="item.Str1" (error)="onImageError($event)">
+        <td class="text-center" style="width: 100px; height:100px;">
+          <img style="height: 100%; width: auto; border-radius: 5px;" [src]="item.Str1" (error)="onImageError($event)">
         </td>
         <td style="vertical-align: middle;">{{item.ID}}</td>
         <td style="vertical-align: middle;">{{item.Name}}</td>
-        <td class="hidden-xs hidden-sm" style="vertical-align: middle;">{{item.Price}}</td>
         <td class="hidden-xs hidden-sm" style="vertical-align: middle;">{{item.Description}}</td>
-        <td style="vertical-align: middle; width: 100px; text-align: center;">
+        <td class="text-right hidden-xs hidden-sm" style="vertical-align: middle;">{{item.Price}}</td>
+        <td class="text-center" style="vertical-align: middle; width: 100px;">
           <div class="row">
             <div class="col-12 hover-bg" style="cursor: pointer; color: green;">
               <a class="noselect" (click)="updateItem(item)">修改</a>

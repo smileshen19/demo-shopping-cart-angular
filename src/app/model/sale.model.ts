@@ -1,7 +1,7 @@
 import { DataModel } from '../class/data.model';
 
 export interface ISale {
-  SaleDetails: ISaleDetailsItem[];
+  SaleDetails: ISaleDetail[];
   No: string;
   TradeDate: string;
   CustomerID: string;
@@ -24,7 +24,7 @@ export interface ISale {
   Mon2: number;
 }
 
-export interface ISaleDetailsItem {
+export interface ISaleDetail {
   No: string;
   Seq: number;
   ItemID: string;
@@ -48,7 +48,7 @@ export interface ISaleDetailsItem {
 }
 
 export class Sale extends DataModel implements ISale {
-  SaleDetails: ISaleDetailsItem[] = [new SaleDetailsItem()];
+  SaleDetails: ISaleDetail[] = [];
   No = '';
   TradeDate = '';
   CustomerID = '';
@@ -76,7 +76,7 @@ export class Sale extends DataModel implements ISale {
   }
 }
 
-export class SaleDetailsItem implements ISaleDetailsItem {
+export class SaleDetail implements ISaleDetail {
   No = '';
   Seq: number = null;
   ItemID = '';
