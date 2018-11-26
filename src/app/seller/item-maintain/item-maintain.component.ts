@@ -16,7 +16,9 @@ export class ItemMaintainComponent implements OnInit {
   item = new Item();
 
   form: FormGroup;
-  // this.route.params
+
+  selectedFile: File;
+
   constructor(
     private itemApiService: ItemApiService,
     private router: Router,
@@ -51,7 +53,7 @@ export class ItemMaintainComponent implements OnInit {
   }
 
   onFileChanged(event) {
-    const file = event.target.files[0];
+    this.selectedFile = event.target.files[0];
   }
 
   onImageError(event) {
