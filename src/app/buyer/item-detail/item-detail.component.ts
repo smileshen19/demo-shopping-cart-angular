@@ -4,6 +4,7 @@ import { ItemMaintainComponent } from 'src/app/seller/item-maintain/item-maintai
 import { ItemApiService } from 'src/app/api-service/item-api.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
+import { ImageService } from 'src/app/service/image.service';
 
 @Component({
   selector: 'app-item-detail',
@@ -16,6 +17,7 @@ export class ItemDetailComponent extends ItemMaintainComponent {
 
   constructor(
     itemApiService: ItemApiService,
+    imageService: ImageService,
     router: Router,
     activatedRoute: ActivatedRoute,
     formBuilder: FormBuilder,
@@ -25,6 +27,7 @@ export class ItemDetailComponent extends ItemMaintainComponent {
       itemApiService,
       router,
       activatedRoute,
+      imageService,
       formBuilder
     );
     this.isBuyerPage = true;

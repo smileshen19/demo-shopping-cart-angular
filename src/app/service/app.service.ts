@@ -8,7 +8,7 @@ export class AppService {
 
   private static _appStatus = {
     isCustomerLogin: false,
-    isAdmin: true,
+    isAdmin: false,
   };
 
   private _$onLoginChange = new Subject<boolean>();
