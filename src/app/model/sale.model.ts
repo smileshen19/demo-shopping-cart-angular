@@ -1,4 +1,4 @@
-import { DataModel } from "../class/data.model";
+import { DataModel } from '../class/data.model';
 
 export interface ISale {
   SaleDetails: ISaleDetailsItem[];
