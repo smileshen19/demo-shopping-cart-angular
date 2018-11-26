@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Item } from 'src/app/model/item.model';
+import { ItemApiService } from 'src/app/api-service/item-api.service';
 
 const noImageUrl = './assets/image/noimage.jpg';
 
@@ -9,9 +11,14 @@ const noImageUrl = './assets/image/noimage.jpg';
 })
 export class ItemManagementComponent implements OnInit {
 
-  constructor() { }
+  items: Item[] = [];
+
+  constructor(
+    private itemApiService: ItemApiService
+  ) { }
 
   ngOnInit() {
+    this.itemApiService.getAll().subscribe((items) => { this.items = items; });
   }
 
   onImageError(event) {
