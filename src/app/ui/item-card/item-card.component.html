@@ -1,9 +1,11 @@
-<div style="height: 300px; padding: 0; margin: 10px 0; border: grey 2px solid; border-radius: 10px; cursor: pointer;" (click)="onClick()">
+<div style="height: 300px; padding: 0; margin: 10px 0; border: grey 2px solid; border-radius: 10px; cursor: pointer;"
+  (click)="onClick()">
   <div style="height: 200px; border-bottom: 2px solid gray; text-align: center; background: #d0d0d0;">
-    <img style="height:100%; width: auto; border-radius: 5px;" [src]="src" (error)="onImageError($event)">
+    <img style="height:100%; width: auto; border-radius: 5px;" [src]="item.Str1" (error)="onImageError($event)">
   </div>
-  <div class="row" style="height: 100px; text-align: left; margin: 0 5px;">
-    <div class="col-12">{{name}}</div>
-    <div class="col-12">${{price}}</div>
+  <div class="row" style="height: 100px; text-align: left; margin: 0 5px;" data-toggle="tooltip" data-placement="top"
+    [title]="item.Description">
+    <div class="col-12">{{item.Name}}</div>
+    <div class="col-12">${{item.Price}}</div>
   </div>
 </div>

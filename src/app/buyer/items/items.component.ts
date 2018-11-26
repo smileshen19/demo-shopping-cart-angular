@@ -1,7 +1,9 @@
+import { ItemApiService } from './../../api-service/item-api.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppService } from 'src/app/service/app.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Item } from 'src/app/model/item.model';
 
 @Component({
   selector: 'app-items',
@@ -12,14 +14,13 @@ export class ItemsComponent implements OnInit, OnDestroy {
 
   isCustomerLogin = false;
 
-  items = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-  ];
+  items: Item[] = [];
 
   private $destroy = new Subject<any>();
 
   constructor(
     private appService: AppService,
+    private itemApiService: ItemApiService
   ) { }
 
   ngOnInit() {
@@ -27,6 +28,7 @@ export class ItemsComponent implements OnInit, OnDestroy {
     this.appService.whenLoginChange().pipe(takeUntil(this.$destroy)).subscribe((isCustomerLogin) => {
       this.isCustomerLogin = isCustomerLogin;
     });
+    this.itemApiService.getAll().subscribe((items) => { this.items = items; });
   }
 
   ngOnDestroy(): void {

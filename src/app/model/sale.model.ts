@@ -72,6 +72,7 @@ export class Sale extends DataModel implements ISale {
 
   constructor(data?: ISale) {
     super(data);
+    if (data) { this.copyDataToSelf(); }
   }
 }
 

@@ -51,6 +51,7 @@ export class Customer extends DataModel implements ICustomer {
 
   constructor(data?: ICustomer) {
     super(data);
+    if (data) { this.copyDataToSelf(); }
   }
 
 }

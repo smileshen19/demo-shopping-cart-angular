@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Item } from 'src/app/model/item.model';
 
 const noImageUrl = './assets/image/noimage.jpg';
 
@@ -9,9 +10,7 @@ const noImageUrl = './assets/image/noimage.jpg';
 })
 export class ItemCardComponent implements OnInit {
 
-  @Input() name = '';
-  @Input() price = null;
-  @Input() src = noImageUrl;
+  @Input() item: Item;
 
   @Output() clickEvent = new EventEmitter<void>();
 

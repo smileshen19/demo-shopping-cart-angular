@@ -41,6 +41,7 @@ export class Item extends DataModel implements IItem {
 
   constructor(data?: IItem) {
     super(data);
+    if (data) { this.copyDataToSelf(); }
   }
 
 }

@@ -1,16 +1,20 @@
 export abstract class DataModel {
 
-  constructor(data?: any) {
-    if (data) {
-      this.copyDataToModel(data);
-    }
+
+  constructor(private originData?) {
+
   }
 
-  private copyDataToModel(data): void {
-    for (const key in data) {
-      if (data.hasOwnProperty(key)) {
-        this[key] = data[key];
+  protected copyDataToSelf(): void {
+    if (this.originData) {
+      console.log(`DataModel copyDataToModel() origin data = `, this.originData);
+      for (const key in this.originData) {
+        if (this.originData.hasOwnProperty(key)) {
+          this[key] = this.originData[key];
+        }
       }
+      console.log(`DataModel copyDataToModel() this = `, this);
     }
+
   }
 }
