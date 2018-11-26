@@ -27,9 +27,7 @@ export class PurchasePageComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    // this.itemApiService.getAll().subscribe((items) => {
-
-    // });
+    this.appService.purchaseStart();
     const itemsInCart = this.shoppingCartService.getItemsInCart();
     itemsInCart.forEach((status) => {
       const detail = new SaleDetail();
@@ -43,7 +41,7 @@ export class PurchasePageComponent implements OnInit, OnDestroy {
       detail.Str1 = status.item.Str1;
       this.sale.SaleDetails.push(detail);
     });
-    this.appService.purchaseStart();
+    this.calculateTotalAmount();
   }
 
   ngOnDestroy(): void {
