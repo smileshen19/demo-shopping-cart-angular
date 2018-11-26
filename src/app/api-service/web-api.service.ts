@@ -1,6 +1,6 @@
 import { HttpService } from '../service/http.service';
 import { environment } from 'src/environments/environment.prod';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
 export abstract class WebApiService<DataInterface, DataModel> {
@@ -30,10 +30,11 @@ export abstract class WebApiService<DataInterface, DataModel> {
   }
 
   getByKey(key: string | number): Observable<DataModel> {
-    return this.httpService.get(`${this.apiUrl}/${this.apiName}`)
+    if (key === 'create') { return of(new this._dataModelConstructor()); }
+    return this.httpService.get(`${this.apiUrl}/${this.apiName}/${key}`)
       .pipe(
         tap(x => { console.log(`${this.apiName}: getByKey(${key})`, x); }),
-        map((x: DataInterface) => new this._dataModelConstructor(x[0]))
+        map((x: DataInterface) => new this._dataModelConstructor(x))
       );
   }
 

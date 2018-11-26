@@ -6,7 +6,7 @@
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" style="display:inline-block;">
       <div class="form-group pointer" data-toggle="tooltip" data-placement="top" title="請選擇圖片" (click)="fileInput.click()">
         <label for="exampleInputEmail1">圖片</label>
-        <img style="width: 100%; height: auto; max-height: 320px;" [src]="'123'" (error)="onImageError($event)">
+        <img style="width: 100%; height: auto; max-height: 320px;" [src]="imgUrl" (error)="onImageError($event)">
       </div>
     </div>
 
