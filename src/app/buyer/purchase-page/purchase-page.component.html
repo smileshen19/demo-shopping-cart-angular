@@ -1,0 +1,26 @@
+<app-page-title title="購買清單"></app-page-title>
+<div class="row">
+  <div class="table-responsive" style="overflow: hidden; margin-top: 20px">
+    <table class="table">
+      <thead>
+        <tr>
+          <th style="width: 100px; text-align: center;">圖片</th>
+          <th>品號</th>
+          <th>品名</th>
+          <th class="hidden-xs hidden-sm">單價</th>
+          <th class="hidden-xs hidden-sm">商品描述</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="height: 100px;" *ngFor="let item of items">
+          <td style="width: 100px; height:100px; text-align: center;">
+            <img style="height: 100%; width: 100%; border-radius: 5px;" [src]="item.Str1" (error)="onImageError($event)">
+          </td>
+          <td style="vertical-align: middle;">{{item.ID}}</td>
+          <td style="vertical-align: middle;">{{item.Name}}</td>
+          <td class="hidden-xs hidden-sm" style="vertical-align: middle;">{{item.Price}}</td>
+          <td class="hidden-xs hidden-sm" style="vertical-align: middle;">{{item.Description}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

@@ -1,14 +1,13 @@
-<div class="pointer" style="position: fixed; top: 60px; right: 30px;">
+<div class="pointer" style="position: fixed; top:110px; right:30px;">
   <div style="position: relative">
-    <img class="hover-icon" src="./assets/image/cart10.png">
-    <br>
-    <br>
-    <div class="text-left">商品種類:{{totalItemsKinds}}種</div>
-    <div class="text-left">商品總數量:{{totalItems}}件</div>
-    <div class="text-left">商品總金額:${{totalAmount}}元</div>
-    <br>
-    <div class="text-right">
-      <button class="btn btn-primary" (click)="goPurchase()">結帳</button>
-    </div>
+    <img class="hover-icon" src="./assets/image/cart10.png" (click)="showDetail = !showDetail" data-toggle="tooltip"
+      data-placement="top" title="開關購物車資訊">
   </div>
+</div>
+<div [hidden]="!showDetail" style="position: fixed; top:175px; right:30px; background-color: wheat; padding:15px; border: 2px solid thistle; border-radius: 15px; z-index: 999;">
+  <div class="text-left">種類:{{totalItemsKinds}}種</div>
+  <div class="text-left">總數量:{{totalItems}}件</div>
+  <div class="text-left">總金額:${{totalAmount}}元</div>
+  <br>
+  <div class="text-center"><button (click)="goPurchase()">結帳</button></div>
 </div>

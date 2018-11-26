@@ -3,10 +3,15 @@
 <form [formGroup]="form">
   <div class="row">
 
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" style="display:inline-block;">
-      <div class="form-group pointer" (click)="clickImg(fileInput)">
-        <label for="exampleInputEmail1">圖片</label>
-        <img style="width: 100%; height: auto; max-height: 320px;" [src]="imgUrl" (error)="onImageError($event)">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 row" style="display:inline-block;">
+      <div class="form-group pointer row" (click)="clickImg(fileInput)">
+        <div class="col-12 text-center">
+          <label style="padding-left: 15px;">圖片</label>
+        </div>
+        <div class="col-12 text-center">
+          <img style="width: auto; height: 100%; height: 400px; padding-left: 15px; padding-right: 15px;" [src]="imgUrl"
+            (error)="onImageError($event)">
+        </div>
       </div>
     </div>
 

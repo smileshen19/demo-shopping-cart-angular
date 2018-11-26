@@ -13,7 +13,7 @@ const routes: Routes = [
     RouterModule.forRoot(
       routes,
       {
-        // enableTracing: true, // enableTracing:true 啟用路由追蹤
+        enableTracing: true, // enableTracing:true 啟用路由追蹤
         // preloadingStrategy: environment.production ? PreloadAllModules : null // PreloadAllModules預先載入
       }
     )],

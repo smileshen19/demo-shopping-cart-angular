@@ -49,13 +49,13 @@
 }
 
 .hover-icon {
-  width: 70px;
-    height: 70px;
+  width: 60px;
+    height: 60px;
   -webkit-transition: width 0.5s, height 0.5s; /* For Safari 3.1 to 6.0 */
     transition: width 0.5s, height 0,5s;
 }
-/*
+
 .hover-icon:hover {
-  width: 75px;
-    height: 75px;
-} */
+  width: 65px;
+    height: 65px;
+}

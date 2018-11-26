@@ -8,9 +8,10 @@ import { ItemsComponent } from './items/items.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartPageComponent } from './cart-page/cart-page.component';
+import { PurchasePageComponent } from './purchase-page/purchase-page.component';
 
 @NgModule({
-  declarations: [BuyerComponent, ItemsComponent, ItemDetailComponent, CartPageComponent],
+  declarations: [BuyerComponent, ItemsComponent, ItemDetailComponent, CartPageComponent, PurchasePageComponent],
   imports: [
     CommonModule,
     BuyerRoutingModule,

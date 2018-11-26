@@ -50,7 +50,9 @@ export class CartPageComponent implements OnInit, OnDestroy {
       alert('請先登入');
       return;
     }
-    alert('準備結帳');
+    // alert('準備結帳');
+    this.showDetail = false;
+    this.router.navigateByUrl('/buyer/purchase');
   }
 
 }
