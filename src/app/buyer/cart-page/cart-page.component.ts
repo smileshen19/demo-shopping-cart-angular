@@ -18,6 +18,8 @@ export class CartPageComponent implements OnInit, OnDestroy {
 
   $destroy = new Subject<any>();
 
+  showDetail = false;
+
   constructor(
     private router: Router,
     private shoppingCartService: ShoppingCartService,
@@ -40,11 +42,15 @@ export class CartPageComponent implements OnInit, OnDestroy {
   }
 
   goPurchase() {
-    if (this.appService.isCustomerLogin()) {
-      alert('準備結帳');
-    } else {
-      alert('請先登入');
+    if (!this.totalItems) {
+      alert('購物車內無商品');
+      return;
     }
+    if (!this.appService.isCustomerLogin()) {
+      alert('請先登入');
+      return;
+    }
+    alert('準備結帳');
   }
 
 }
